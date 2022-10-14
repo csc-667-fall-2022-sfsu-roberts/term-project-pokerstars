@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start:dev:win": "SET \"NODE_ENV=development\" SET DEBUG=myapp:* & nodemon ./bin/www",
+    "start" : "node index.js",
     "db:create:migration": "npx sequelize migration:generate --name",
     "db:migrate": "npx sequelize db:migrate",
     "db:rollback": "npx sequelize db:migrate:undo",
