@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    ul 
+      li 
+        a(href ="/") Home (Unauthenticated page)
+      li 
+        a(href ="/lobby") Lobby 
+      li 
+        a(href ="/game/42") Game Page
+    
+    block content

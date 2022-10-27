@@ -1,3 +1,5 @@
+// Professor deletes this in the video, not sure if we need to as well
+
 var express = require('express');
 var router = express.Router();
 

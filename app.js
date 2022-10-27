@@ -7,7 +7,14 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
+//var indexRouter = require('./routes/index');
+var homeRouter = require('./routes/unauthenticated/index');
+//changed adding routes 
+var authenticationRouter = require('./routes/unauthenticated/authentication');
+var lobbyRouter = require('./routes/authenticated/lobby');
+var gameRouter = require('./routes/authenticated/game');
+
+
 var usersRouter = require('./routes/users');
 var testRouter = require('./routes/test');
 var app = express();
@@ -22,7 +29,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+//added homerouter/authenticationRouter/lobbyRouter/gameRouter
+app.use('/', homeRouter);
+app.use('/', authenticationRouter);
+app.use('/lobby', lobbyRouter);
+app.use('/game', gameRouter);
 app.use('/users', usersRouter);
 app.use('/test', testRouter);
 
