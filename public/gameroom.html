@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+  <title> Game Room </title>
+  <link rel="stylesheet" href="stylesheets/gameroom.css">
+  <script src="js/gameroom.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="upper">
+      <div class="player3">
+        <div class="card back-blue"></div>
+      </div>
+      <div class="player4">
+        <div class="card back-red"></div>
+      </div>
+    </div>
+    <div class="middle">
+      <div id="cc1" class="commonCard">
+        <div class="card"></div>
+      </div>
+      <div id="cc2" class="commonCard">
+        <div class="card"></div>
+      </div>
+      <div id="cc3" class="commonCard">
+        <div class="card"></div>
+      </div>
+      <div id="cc4" class="commonCard">
+        <div class="card"></div>
+      </div>
+      <div id="cc5" class="commonCard">
+        <div class="card"></div>
+      </div>
+    </div>
+    <div class="lower">
+      <div class="player2">
+        <div class="card back-red"></div>
+      </div>
+      <div id="player1" class="player1">
+        <div class="card"></div>
+      </div>
+    </div>
+    <div class="game-console">
+      <div class="actions">
+        <button id="fold">Fold</button>
+        <button id="check">Check</button>
+        <button id="call">Call</button>
+        <button id="bet">Bet</button>
+        <button id="raise">Raise</button>
+      </div>
+      <div class="chat">
+        <div class="messages">Chat</div>
+        <textarea name="msgInput" id="msgInput" cols="30" rows="2" placeholder="Enter message"></textarea>
+      </div>
+      <div class="stats">Stats</div>
+    </div>
+  </div>
+</body>
+</html>

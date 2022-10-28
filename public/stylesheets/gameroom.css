@@ -1,0 +1,254 @@
+.container {
+  margin: auto;
+}
+
+.upper {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.middle {
+  margin-bottom: 10px;
+  width: 100%;
+  margin-left: 25%;
+  display: flex;
+}
+
+.lower {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-console {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.card {
+  height: 124px;
+  width: 88px;
+}
+
+
+.back-red {
+  background: url("/public/images/cards/Top-Down/Cards/Back_88x124.png");
+}
+
+.back-blue {
+  background: url("/public/images/cards/Top-Down/Cards/Back_88x124.png") 88px 0;
+}
+
+.ace-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png")
+}
+
+.two-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") -88px 0;
+}
+
+.three-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") -176px 0;
+}
+
+.four-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") -264px 0;
+}
+
+.five-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") -352px 0;
+}
+
+.six-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") 0 -124px;
+}
+
+.seven-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") -88px -124px;
+}
+
+.eight-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") -176px -124px;
+}
+
+.nine-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") -264px -124px;
+}
+
+.ten-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") -352px -124px;
+}
+
+.jack-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") 0 -248px;
+}
+
+.queen-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") -88px -248px;
+}
+
+.king-club {
+  background: url("/public/images/cards/Top-Down/Cards/Clubs_88x124.png") -176px -248px;
+}
+
+.ace-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png")
+}
+
+.two-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") -88px 0;
+}
+
+.three-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") -176px 0;
+}
+
+.four-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") -264px 0;
+}
+
+.five-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") -352px 0;
+}
+
+.six-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") 0 -124px;
+}
+
+.seven-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") -88px -124px;
+}
+
+.eight-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") -176px -124px;
+}
+
+.nine-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") -264px -124px;
+}
+
+.ten-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") -352px -124px;
+}
+
+.jack-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") 0 -248px;
+}
+
+.queen-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") -88px -248px;
+}
+
+.king-heart {
+  background: url("/public/images/cards/Top-Down/Cards/Hearts_88x124.png") -176px -248px;
+}
+
+.ace-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png")
+}
+
+.two-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") -88px 0;
+}
+
+.three-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") -176px 0;
+}
+
+.four-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") -264px 0;
+}
+
+.five-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") -352px 0;
+}
+
+.six-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") 0 -124px;
+}
+
+.seven-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") -88px -124px;
+}
+
+.eight-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") -176px -124px;
+}
+
+.nine-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") -264px -124px;
+}
+
+.ten-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") -352px -124px;
+}
+
+.jack-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") 0 -248px;
+}
+
+.queen-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") -88px -248px;
+}
+
+.king-spade {
+  background: url("/public/images/cards/Top-Down/Cards/Spades_88x124.png") -176px -248px;
+}
+
+.ace-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png")
+}
+
+.two-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") -88px 0;
+}
+
+.three-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") -176px 0;
+}
+
+.four-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") -264px 0;
+}
+
+.five-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") -352px 0;
+}
+
+.six-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") 0 -124px;
+}
+
+.seven-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") -88px -124px;
+}
+
+.eight-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") -176px -124px;
+}
+
+.nine-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") -264px -124px;
+}
+
+.ten-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") -352px -124px;
+}
+
+.jack-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") 0 -248px;
+}
+
+.queen-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") -88px -248px;
+}
+
+.king-diamond {
+  background: url("/public/images/cards/Top-Down/Cards/Diamonds_88x124.png") -176px -248px;
+}
