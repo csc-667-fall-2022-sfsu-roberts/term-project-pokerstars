@@ -56,7 +56,6 @@ cardImages.set(52, 'back-red');
 cardImages.set(53, 'back-blue');
 
 let card1 = document.getElementById('player1')
-console.log(card1)
 let commonCard_1 = document.getElementById('cc1');
 let commonCard_2 = document.getElementById('cc2');
 let commonCard_3 = document.getElementById('cc3');
