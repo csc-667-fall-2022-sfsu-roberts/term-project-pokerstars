@@ -5,7 +5,7 @@ router.get('/:id', (request, response) => {
 
 const { id } = request.params;
 
-  res.render('authenticated/games', { id });
+  response.render('authenticated/game.pug', { id });
 });
 
 module.exports = router;
