@@ -57,3 +57,6 @@ typings/
 # Not sure, but line was already here in the file. I think it's a repeat of the
 # dotenv environment variables file, but for a Windows system.
 ".env"
+
+# macOS core
+.DS_Store

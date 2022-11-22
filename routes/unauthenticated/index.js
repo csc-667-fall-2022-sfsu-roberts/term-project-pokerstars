@@ -1,8 +1,8 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-router.get('/', (_request, response) => {
-  res.render('unauthenticated/index', {});
+router.get("/", (request, response) => {
+  response.render("unauthenticated/index.pug", {});
 });
 
 module.exports = router;
