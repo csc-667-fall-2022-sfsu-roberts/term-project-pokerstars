@@ -1,8 +1,8 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-router.get('/', (_request, response) => {
-  res.render('authenticated/lobby', {});
+router.get("/", (request, response) => {
+  response.render("authenticated/lobby.pug", {});
 });
 
 module.exports = router;

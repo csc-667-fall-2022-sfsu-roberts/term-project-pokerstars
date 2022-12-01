@@ -1,5 +1,17 @@
-extends layout 
+extends layout
 
-block content 
-h1 Login page 
-p Welcome to #{PokerStars}
+block content
+  h1 Login page
+  p Welcome to #{PokerStars}
+
+  form(action="/authenticated/login" method="POST")
+    div
+      label(for="username")
+      input(type="text" name="username")
+
+    div
+      label(for="password")
+      input(type="password" name="password")
+
+    div
+      input(type="submit" value="Login")

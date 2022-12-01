@@ -1,13 +1,8 @@
 var express = require("express");
 var router = express.Router();
-
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index.pug", { title: "Poker Stars" });
-});
-
-module.exports = router;
 const pgtools = require("pgtools");
+
+/*
 const config = {
   user: "pokestars_user",
   host: "dpg-cd4bjipgp3jqpbo8m10g-a",
@@ -22,3 +17,10 @@ pgtools.createdb(config, "pokerstars", function (err, res) {
   }
   console.log(res);
 });
+*/
+/* GET home page. */
+router.get("/", function (req, res, next) {
+  res.render("index.pug", { title: "Poker Stars" });
+});
+
+module.exports = router;

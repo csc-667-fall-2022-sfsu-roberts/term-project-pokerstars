@@ -1,14 +1,12 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-router.get('/signup', (_request, response) => {
-  res.render('unauthenticated/signup', {});
+router.get("/signup", (_request, response) => {
+  res.render("unauthenticated/signup.pug", {});
 });
 
-router.get('/login', (_request, response) => {
-    res.render('unauthenticated/login', {});
-  });
-
-
+router.get("/login", (_request, response) => {
+  res.render("unauthenticated/login.pug", {});
+});
 
 module.exports = router;

@@ -60,3 +60,9 @@ typings/
 
 # macOS core
 .DS_Store
+
+# VS code files
+.vscode/
+
+# IDEA files
+.idea/

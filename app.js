@@ -1,13 +1,17 @@
 if (process.env.NODE_ENV === "development") {
   require("dotenv").config();
+} else {
+  process.env.DATABASE_URL =
+    "postgres://pokerstars_user:j6WAWxeYSDlAcRkFYDzWEB37SXB8wbdT@dpg-cd4cje1gp3jqpboak3gg-a/pokerstars";
 }
 
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 const exphbs = require("express-handlebars");
+const sessionInstance = require("./app-config/session");
 
 //var indexRouter = require("./routes/index");
 var homeRouter = require("./routes/unauthenticated/index");
@@ -16,6 +20,8 @@ var authenticationRouter = require("./routes/unauthenticated/authentication");
 var lobbyRouter = require("./routes/authenticated/lobby");
 //var gameRouter = require('./routes/authenticated/game');
 var gameRouter = require("./routes/authenticated/gameroom");
+const signupRouter = require("./routes/unauthenticated/authentication");
+const loginRouter = require("./routes/unauthenticated/authentication");
 
 var usersRouter = require("./routes/users");
 var testRouter = require("./routes/test");
@@ -26,7 +32,7 @@ const hbs = exphbs.create({
   extname: "hbs",
   layoutsDir: path.join(__dirname, "views/hbs_layouts"),
   partialsDir: path.join(__dirname, "views/hbs_partials"),
-  defaultLayout: "layout",
+  defaultLayout: "layout"
 });
 
 // view engine setup
@@ -39,6 +45,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(sessionInstance);
 app.use("/public", express.static(path.join(__dirname, "public")));
 
 //added homerouter/authenticationRouter/lobbyRouter/gameRouter
@@ -49,6 +56,8 @@ app.use("/lobby", lobbyRouter);
 app.use("/gameroom", gameRouter);
 app.use("/users", usersRouter);
 app.use("/test", testRouter);
+app.use("/signup", signupRouter);
+app.use("/login", loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
