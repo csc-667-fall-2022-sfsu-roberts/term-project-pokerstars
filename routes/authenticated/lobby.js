@@ -3,9 +3,9 @@ const router = express.Router();
 
 router.get("/", (request, response) => {
   const { sessionID } = request;
-  const { username } = request.session;
+  const { username, userID } = request.session;
 
-  response.render("authenticated/lobby.pug", { username, sessionID });
+  response.render("authenticated/lobby.pug", { username, userID });
 });
 
 module.exports = router;
