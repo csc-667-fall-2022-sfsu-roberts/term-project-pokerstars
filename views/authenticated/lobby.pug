@@ -4,3 +4,6 @@ block content
   h1 Lobby page (authenticated)
   if username
     h2 Welcome #{username} (#{userID})
+block footer
+  script(src="/socket.io/socket.io.js")
+  script(src="../../public/js/test-socket.js")

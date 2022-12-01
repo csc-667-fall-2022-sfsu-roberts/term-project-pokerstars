@@ -29,6 +29,7 @@
     "pug": "^3.0.2",
     "sequelize": "^6.25.1",
     "sequelize-cli": "^6.5.1",
+    "socket.io": "^4.5.4",
     "touch": "^3.1.0"
   },
   "devDependencies": {
