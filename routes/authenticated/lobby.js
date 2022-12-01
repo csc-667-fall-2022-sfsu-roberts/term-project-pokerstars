@@ -1,8 +1,11 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 
 router.get("/", (request, response) => {
-  response.render("authenticated/lobby.pug", {});
+  const { sessionID } = request;
+  const { username } = request.session;
+
+  response.render("authenticated/lobby.pug", { username, sessionID });
 });
 
 module.exports = router;

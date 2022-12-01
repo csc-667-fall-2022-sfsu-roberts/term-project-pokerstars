@@ -12,6 +12,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const exphbs = require("express-handlebars");
 const sessionInstance = require("./app-config/session");
+const protect = require("./middleware/protect");
 
 //var indexRouter = require("./routes/index");
 var homeRouter = require("./routes/unauthenticated/index");
@@ -52,8 +53,8 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 app.use("/", homeRouter);
 //app.use("/", indexRouter);
 app.use("/", authenticationRouter);
-app.use("/lobby", lobbyRouter);
-app.use("/gameroom", gameRouter);
+app.use("/lobby", protect, lobbyRouter);
+app.use("/gameroom", protect, gameRouter);
 app.use("/users", usersRouter);
 app.use("/test", testRouter);
 app.use("/signup", signupRouter);

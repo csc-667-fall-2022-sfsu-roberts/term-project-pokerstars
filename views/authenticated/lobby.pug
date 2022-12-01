@@ -2,3 +2,5 @@ extends layout
 
 block content
   h1 Lobby page (authenticated)
+  if username
+    h2 Welcome #{username} (#{sessionID})
