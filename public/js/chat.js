@@ -10,7 +10,7 @@ document
         body: JSON.stringify({ message: event.target.value })
       })
         .then(() => {
-          document.querySelector("#message").value = "";
+          document.querySelector("#message-field").value = "";
         })
         .catch((error) => console.log(error));
     }
@@ -22,6 +22,7 @@ socket.on("chat:0", ({ sender, message, timestamp }) => {
   const template = document.querySelector("#message");
 
   const content = template.content.cloneNode(true);
+
   content.querySelector(".sender").innerText = sender;
   content.querySelector(".content").innerText = message;
   content.querySelector(".timestamp").innerText = timestamp;
