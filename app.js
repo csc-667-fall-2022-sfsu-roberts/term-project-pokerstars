@@ -23,6 +23,7 @@ var lobbyRouter = require("./routes/authenticated/lobby");
 var gameRouter = require("./routes/authenticated/gameroom");
 const signupRouter = require("./routes/unauthenticated/authentication");
 const loginRouter = require("./routes/unauthenticated/authentication");
+const chatRouter = require("./routes/api/chat");
 
 var usersRouter = require("./routes/users");
 var testRouter = require("./routes/test");
@@ -59,6 +60,7 @@ app.use("/users", usersRouter);
 app.use("/test", testRouter);
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
+app.use("/chat", protect, chatRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
