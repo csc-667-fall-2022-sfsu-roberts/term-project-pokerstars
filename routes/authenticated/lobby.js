@@ -8,6 +8,7 @@ router.get("/", (request, response) => {
   Games.all(userID)
     .then((games) =>
       response.render("authenticated/lobby.pug", {
+        title: "Lobby",
         username,
         userID,
         games

@@ -32,6 +32,14 @@ const JOINABLE_GAMES =
     ON games.id = game_users.game_id
     WHERE game_users.user_id=` + "${user_id})";
 
+const CHECK_ACTIVE_GAMES =
+  `SELECT *
+    FROM game_users
+    WHERE game_id=` +
+  "${game_id}" +
+  `AND user_id=` +
+  "${user_id}";
+
 const create = (user_id, title = "Game") => {
   return db.one(CREATE_SQL, { title }).then(({ id }) => {
     return addUser(user_id, id);
@@ -49,4 +57,10 @@ const all = (user_id) => {
   ]).then(([active, joinable]) => ({ active, joinable }));
 };
 
-module.exports = { create, all, addUser };
+const join = (game_id, user_id) => {
+  return db
+    .none(CHECK_ACTIVE_GAMES, { game_id, user_id })
+    .then(() => db.one(ADD_USER_SQL, { game_id, user_id }));
+};
+
+module.exports = { create, all, addUser, join };

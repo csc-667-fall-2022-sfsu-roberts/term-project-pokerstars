@@ -27,6 +27,18 @@ router.get("/:id", (request, response) => {
   response.redirect(`/game/${id}`);
 });
 
+router.post("/:id/join", (request, response) => {
+  const { id: game_id } = request.params;
+  const { userID: user_id } = request.session;
+
+  Games.join(game_id, user_id)
+    .then(() => response.redirect(`/game/${game_id}`))
+    .catch((error) => {
+      console.log(error);
+      response.status(500).send();
+    });
+});
+
 router.get("/:id/:message", (request, resposne) => {
   const { id, message } = request.params;
 
