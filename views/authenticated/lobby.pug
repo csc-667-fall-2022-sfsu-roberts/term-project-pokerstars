@@ -5,6 +5,13 @@ block content
   if username
     h2 Welcome #{username} (#{userID})
 
+  #games-list
+    ul
+    form(action="/gameroom/create" method="POST")
+      label(for="title") Title (optional):
+      input#title(type="text" name="title")
+      button#create-game(type="submit") Create New Game
+
   template#message
     span.sender
     span.content
@@ -17,4 +24,6 @@ block content
 
 block footer
   script(src="/socket.io/socket.io.js")
+  script(src="../../public/js/setup.js")
   script(src="../../public/js/chat.js")
+  script(src="../../public/js/game-management.js")

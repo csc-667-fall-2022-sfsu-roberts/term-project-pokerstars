@@ -14,19 +14,18 @@ const exphbs = require("express-handlebars");
 const sessionInstance = require("./app-config/session");
 const protect = require("./middleware/protect");
 
-//var indexRouter = require("./routes/index");
-var homeRouter = require("./routes/unauthenticated/index");
+const homeRouter = require("./routes/unauthenticated/index");
 //changed adding routes
-var authenticationRouter = require("./routes/unauthenticated/authentication");
-var lobbyRouter = require("./routes/authenticated/lobby");
-//var gameRouter = require('./routes/authenticated/game');
-var gameRouter = require("./routes/authenticated/gameroom");
+const authenticationRouter = require("./routes/unauthenticated/authentication");
+const lobbyRouter = require("./routes/authenticated/lobby");
+const gameRoomRouter = require("./routes/authenticated/gameroom");
 const signupRouter = require("./routes/unauthenticated/authentication");
 const loginRouter = require("./routes/unauthenticated/authentication");
 const chatRouter = require("./routes/api/chat");
+const gameRouter = require("./routes/authenticated/game");
+const usersRouter = require("./routes/users");
+const testRouter = require("./routes/test");
 
-var usersRouter = require("./routes/users");
-var testRouter = require("./routes/test");
 const { hasSubscribers } = require("diagnostics_channel");
 var app = express();
 
@@ -55,12 +54,13 @@ app.use("/", homeRouter);
 //app.use("/", indexRouter);
 app.use("/", authenticationRouter);
 app.use("/lobby", protect, lobbyRouter);
-app.use("/gameroom", protect, gameRouter);
+app.use("/gameroom", protect, gameRoomRouter);
 app.use("/users", usersRouter);
 app.use("/test", testRouter);
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use("/chat", protect, chatRouter);
+app.use("/game", protect, gameRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
