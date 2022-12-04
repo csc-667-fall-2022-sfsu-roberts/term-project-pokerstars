@@ -1,15 +1,7 @@
 const express = require("express");
-const { request } = require("../../app");
+const { request, response } = require("../../app");
 const Users = require("../../db/users");
 const router = express.Router();
-
-// router.get("/", (request, response) => {
-//   response.render("unauthenticated/index.pug", {});
-// });
-
-router.get("/login", (request, response) => {
-  response.render("unauthenticated/login.pug", {});
-});
 
 const handleLogin =
   (request, response) =>
@@ -26,6 +18,18 @@ const handleLoginError = (response, redirectUri) => (error) => {
   response.redirect(redirectUri);
 };
 
+router.get("/login", (request, response) => {
+  response.render("unauthenticated/login.pug", {});
+});
+
+router.post("/login", (request, response) => {
+  const { username, password } = request.body;
+
+  Users.login({ username, password })
+    .then(handleLogin(request, response))
+    .catch(handleLoginError(response, "/login"));
+});
+
 router.get("/signup", (request, response) => {
   response.render("unauthenticated/signup.pug", {});
 });
@@ -38,12 +42,10 @@ router.post("/signup", (request, response) => {
     .catch(handleLoginError(response, "/signup"));
 });
 
-router.post("/login", (request, response) => {
-  const { username, password } = request.body;
+router.get("/logout", (request, response) => {
+  request.session.authenticated = false;
 
-  Users.login({ username, password })
-    .then(handleLogin(request, response))
-    .catch(handleLoginError(response, "/login"));
+  response.redirect("/");
 });
 
 module.exports = router;
