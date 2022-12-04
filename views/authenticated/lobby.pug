@@ -5,18 +5,35 @@ block content
   if username
     h2 Welcome #{username} (#{userID})
 
-  #games-list
-    ul
-    form(action="/gameroom/create" method="POST")
-      label(for="title") Title (optional):
-      input#title(type="text" name="title")
-      button#create-game(type="submit") Create New Game
+  #game-list
+    h2 Create New Game
+    #create-game
+      form(action="/gameroom/create" method="POST")
+        label(for="title") Title (optional):
+        input#title(type="text" name="title")
+        button#create-game(type="submit") Create
+
+    h2 Active Games
+    #active-games-list
+      ul
+        each game in games.active
+          li
+            a(href=`/game/${game.id}`) game.title
+
+    h2 Joinable Games
+    #joinable-games-list
+      ul
+        each game in games.joinable
+          li
+            form(action=`/game/${game.id}/join`)
+              button(type="submit") Join #{game.title || game.id}
 
   template#message
     span.sender
     span.content
     span.timestamp
 
+  h2 Chat
   #chat
     #messages
     #send

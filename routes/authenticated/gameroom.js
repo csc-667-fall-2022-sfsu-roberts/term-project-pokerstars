@@ -19,15 +19,12 @@ router.post("/create", (request, response) => {
       console.log(error);
       response.status(500).send();
     });
+});
 
-  // response.render("authenticated/gameroom.hbs", {
-  //   title: "Game Room",
-  //   game_id: id,
-  //   game: "/public/js/gameroom.js",
-  //   cards: "/public/js/cards.js",
-  //   style: "../../public/stylesheets/gameroom.css",
-  //   cardStyle: "../../public/stylesheets/cards.css"
-  // });
+router.get("/:id", (request, response) => {
+  const { id } = body.params;
+
+  response.redirect(`/game/${id}`);
 });
 
 router.get("/:id/:message", (request, resposne) => {
@@ -43,15 +40,5 @@ router.get("/:id/:message", (request, resposne) => {
     cardStyle: "../../public/stylesheets/cards.css"
   });
 });
-
-// router.get("/", (request, response) => {
-//   response.render("authenticated/gameroom.hbs", {
-//     title: "Game Room",
-//     game: "/public/js/gameroom.js",
-//     cards: "/public/js/cards.js",
-//     style: "../../public/stylesheets/gameroom.css",
-//     cardStyle: "../../public/stylesheets/cards.css"
-//   });
-// });
 
 module.exports = router;
