@@ -3,6 +3,34 @@
   margin: auto;
 }
 
+nav {
+  border-bottom: 1px solid black;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.nav-item {
+  display: inline-block;
+}
+
+.nav-item a::after {
+  display: inline-block;
+  color: #000;
+  content: ">";
+  font-size: 80%;
+  font-weight: bold;
+  padding: 0 3px;
+}
+
 .upper {
   margin-bottom: 10px;
   display: flex;

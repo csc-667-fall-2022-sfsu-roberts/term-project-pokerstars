@@ -1,5 +1,4 @@
 const express = require("express");
-const { request, response } = require("../../app");
 const Users = require("../../db/users");
 const router = express.Router();
 
@@ -18,8 +17,12 @@ const handleLoginError = (response, redirectUri) => (error) => {
   response.redirect(redirectUri);
 };
 
+router.get("/", (request, response) => {
+  response.render("unauthenticated/index.pug", { title: "Poker Stars" });
+});
+
 router.get("/login", (request, response) => {
-  response.render("unauthenticated/login.pug", {});
+  response.render("unauthenticated/login.pug", { title: "Poker Stars" });
 });
 
 router.post("/login", (request, response) => {

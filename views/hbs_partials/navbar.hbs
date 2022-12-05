@@ -1,7 +1,13 @@
-<div id="navbar" class="navbar">
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/lobby">Lobby</a></li>
-    <li><a href="/login/logout">Logout</a></li>
-  </ul>
-</div>
+<nav id="navbar" class="navbar">
+  <div id="nav-container" class="nav-container">
+    <ul>
+      <li class="nav-item"><a href="/">Home</a></li>
+      <li class="nav-item"><a href="/lobby">Lobby</a></li>
+      <li class="nav-item">Gameroom</li>
+    </ul>
+    <form action="/logout" method="get">
+      <button type="submit">Logout</button>
+    </form>
+
+  </div>
+</nav>

@@ -14,8 +14,6 @@ const exphbs = require("express-handlebars");
 const sessionInstance = require("./app-config/session");
 const protect = require("./middleware/protect");
 
-const homeRouter = require("./routes/unauthenticated/index");
-//changed adding routes
 const authenticationRouter = require("./routes/unauthenticated/authentication");
 const lobbyRouter = require("./routes/authenticated/lobby");
 const gameRoomRouter = require("./routes/authenticated/gameroom");
@@ -49,18 +47,15 @@ app.use(cookieParser());
 app.use(sessionInstance);
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-//added homerouter/authenticationRouter/lobbyRouter/gameRouter
-app.use("/", homeRouter);
-//app.use("/", indexRouter);
 app.use("/", authenticationRouter);
 app.use("/lobby", protect, lobbyRouter);
 app.use("/gameroom", protect, gameRoomRouter);
+app.use("/chat", protect, chatRouter);
+app.use("/game", protect, gameRouter);
 app.use("/users", usersRouter);
 app.use("/test", testRouter);
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
-app.use("/chat", protect, chatRouter);
-app.use("/game", protect, gameRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -32,6 +32,13 @@
       <div class="card back-red"></div>
       <div class="card back-red"></div>
     </div>
+    <div id="chat" class="chat">
+      <div id="messages" class="chat-messages">
+        <span class="sender"></span>
+        <span class="content"></span>
+        <span class="timestamp"></span>
+      </div>
+    </div>
     <div id="player1" class="hand">
       <div id="card11" class="card"></div>
       <div id="card12" class="card"></div>
@@ -46,10 +53,10 @@
       <button id="raise">Raise</button>
     </div>
     <div class="chat">
-      <div class="messages">Chat</div>
+      <div class="messages"></div>
       <textarea
-        name="msgInput"
-        id="msgInput"
+        name="message-field"
+        id="message-field"
         cols="30"
         rows="2"
         placeholder="Enter message"
@@ -58,3 +65,7 @@
     <div class="stats">Stats</div>
   </div>
 </div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="../../public/js/setup.js"></script>
+<script src="../../public/js/game-chat.js"></script>
+<script src="../../public/js/game-management.js"></script>
