@@ -8,7 +8,7 @@ router.post("/create", (request, response) => {
 
   Games.create(userID, title)
     .then(({ game_id }) => {
-      response.redirect(`/game/${game_id}`);
+      response.redirect(`/game/${game_id}/${title}`);
 
       request.app.io.emit("game:created", {
         game_id,
@@ -27,6 +27,13 @@ router.get("/:id", (request, response) => {
   response.redirect(`/game/${id}`);
 });
 
+router.get("/:id/:title", (request, response) => {
+  const id = request.params.id;
+  const title = request.params.title;
+
+  response.redirect(`/game/${id}/${title}`);
+});
+
 router.post("/:id/join", (request, response) => {
   const { id: game_id } = request.params;
   const { userID: user_id } = request.session;
@@ -39,11 +46,23 @@ router.post("/:id/join", (request, response) => {
     });
 });
 
+router.post("/:id/:title/join", (request, response) => {
+  const game_id = request.params.id;
+  const title = request.params.title;
+  const { userID: user_id } = request.session;
+
+  Games.join(game_id, user_id)
+    .then(() => response.redirect(`/game/${game_id}/${title}`))
+    .catch((error) => {
+      console.log(error);
+      response.status(500).send();
+    });
+});
+
 router.get("/:id/:message", (request, resposne) => {
   const { id, message } = request.params;
 
   response.render("authenticated/gameroom.hbs", {
-    title: "Game Room",
     game_id: id,
     message: message,
     game: "/public/js/gameroom.js",

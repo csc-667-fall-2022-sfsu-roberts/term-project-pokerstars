@@ -18,14 +18,14 @@ block content
       ul
         each game in games.active
           li
-            a(href=`/game/${game.id}`) #{game.title}
+            a(href=`/game/${game.id}/${game.title}`) #{game.title}
 
     h2 Joinable Games
     #joinable-games-list
       ul
         each game in games.joinable
           li
-            form(action=`/gameroom/${game.id}/join` method="POST")
+            form(action=`/gameroom/${game.id}/${game.title}/join` method="POST")
               button(type="submit") Join #{game.title || game.id}
 
   template#message

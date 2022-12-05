@@ -18,11 +18,11 @@ const handleLoginError = (response, redirectUri) => (error) => {
 };
 
 router.get("/", (request, response) => {
-  response.render("unauthenticated/index.pug", { title: "Poker Stars" });
+  response.render("unauthenticated/index.pug", {});
 });
 
 router.get("/login", (request, response) => {
-  response.render("unauthenticated/login.pug", { title: "Poker Stars" });
+  response.render("unauthenticated/login.pug", {});
 });
 
 router.post("/login", (request, response) => {
