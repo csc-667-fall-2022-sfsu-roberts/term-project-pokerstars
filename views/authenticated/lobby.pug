@@ -8,25 +8,27 @@ block content
   #game-list
     h2 Create New Game
     #create-game
-      form(action="/gameroom/create" method="POST")
+
+      //- form(action="/gameroom/create" method="POST")
+      form(action="/gameroom/create/gameroom" method="POST")
         label(for="title") Title (optional):
         input#title(type="text" name="title")
         button#create-game(type="submit") Create
 
-    h2 Active Games
+    h2 Active Gamerooms
     #active-games-list
       ul
-        each game in games.active
+        each gameroom in gamerooms.active
           li
-            a(href=`/game/${game.id}/${game.title}`) #{game.title}
+            a(href=`/gameroom/${gameroom.id}/${gameroom.title}`) #{gameroom.title}
 
-    h2 Joinable Games
+    h2 Joinable Gamerooms
     #joinable-games-list
       ul
-        each game in games.joinable
+        each gameroom in gamerooms.joinable
           li
-            form(action=`/gameroom/${game.id}/${game.title}/join` method="POST")
-              button(type="submit") Join #{game.title || game.id}
+            form(action=`/gameroom/${gameroom.id}/${gameroom.title}/join` method="POST")
+              button(type="submit") Join #{gameroom.title || gameroom.id}
 
   template#message
     span.sender

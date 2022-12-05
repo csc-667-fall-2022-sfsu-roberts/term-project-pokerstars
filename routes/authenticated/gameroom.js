@@ -1,6 +1,26 @@
 const express = require("express");
 const router = express.Router();
 const Games = require("../../db/games");
+const Gamerooms = require("../../db/gamerooms");
+
+router.post("/create/gameroom", (request, response) => {
+  const { userID } = request.session;
+  const { title } = request.body;
+
+  Gamerooms.create(userID, title)
+    .then(({ gameroom_id }) => {
+      response.redirect(`/gameroom/${gameroom_id}/${title}`);
+
+      request.app.io.emit("gameroom:created", {
+        gameroom_id,
+        title
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+      response.status(500).send();
+    });
+});
 
 router.post("/create", (request, response) => {
   const { userID } = request.session;
@@ -19,6 +39,20 @@ router.post("/create", (request, response) => {
       console.log(error);
       response.status(500).send();
     });
+});
+
+router.get("/:id/:title", (request, response) => {
+  const id = request.params.id;
+  const title = request.params.title;
+
+  response.render("authenticated/gameroom.hbs", {
+    game_title: title,
+    game_id: id,
+    game: "/public/js/gameroom.js",
+    cards: "/public/js/cards.js",
+    style: "../../public/stylesheets/gameroom.css",
+    cardStyle: "../../public/stylesheets/cards.css"
+  });
 });
 
 router.get("/:id", (request, response) => {
@@ -47,12 +81,12 @@ router.post("/:id/join", (request, response) => {
 });
 
 router.post("/:id/:title/join", (request, response) => {
-  const game_id = request.params.id;
+  const gameroom_id = request.params.id;
   const title = request.params.title;
   const { userID: user_id } = request.session;
 
-  Games.join(game_id, user_id)
-    .then(() => response.redirect(`/game/${game_id}/${title}`))
+  Gamerooms.join(gameroom_id, user_id)
+    .then(() => response.redirect(`/gameroom/${gameroom_id}/${title}`))
     .catch((error) => {
       console.log(error);
       response.status(500).send();
