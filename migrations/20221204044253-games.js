@@ -16,8 +16,8 @@ module.exports = {
       },
       gameroom_id: {
         type: Sequelize.INTEGER,
-        allowNull: false;
-      }
+        allowNull: false,
+      },
       createdAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal("NOW()"),
