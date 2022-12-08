@@ -1,8 +1,12 @@
+const queryString = window.location.href;
+const urlParams = queryString.split("/");
+const gameroom_id = urlParams[urlParams.length - 2];
+
 document
   .querySelector("#message-field")
   .addEventListener("keydown", (event) => {
     if (event.keyCode === 13) {
-      fetch("/chat/0", {
+      fetch(`/chat/gameroom/${gameroom_id}`, {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: event.target.value })
@@ -16,10 +20,13 @@ document
 
 const messages = document.querySelector("#messages");
 
-socket.on("chat:0", ({ sender, message, timestamp }) => {
-  content.querySelector(".sender").innerText = sender;
-  content.querySelector(".content").innerText = message;
-  content.querySelector(".timestamp").innerText = timestamp;
+socket.on(`chat/gameroom/:${gameroom_id}`, ({ sender, message, timestamp }) => {
+  let template = document.createElement("template");
+  template.innerHTML = `<div class="commment">
+                          <span class="sender">@${sender}</span>
+                          <span class="content">${message}</span>
+                          <div class="timestamp">${timestamp}</div>
+                        </div>`;
 
-  messages.appendChild(content);
+  messages.lastChild.after(template.content.firstChild);
 });
