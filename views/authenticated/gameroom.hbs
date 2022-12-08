@@ -1,4 +1,4 @@
-<h1>Game ID {{game_id}}</h1>
+<h1>Game ID {{gameroom_id}}</h1>
 <div class="container">
   <div class="upper">
     <div id="player3" class="hand">
@@ -34,10 +34,9 @@
     </div>
     <div id="chat" class="chat">
       <div id="messages" class="chat-messages">
-        Commenntst
-        {{! <span class="sender"></span>
-        <span class="content"></span>
-        <span class="timestamp"></span> }}
+        {{#each comments }}
+          {{> comment this}}
+        {{/each}}
       </div>
     </div>
     <div id="player1" class="hand">

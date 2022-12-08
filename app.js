@@ -13,6 +13,7 @@ const logger = require("morgan");
 const exphbs = require("express-handlebars");
 const sessionInstance = require("./app-config/session");
 const protect = require("./middleware/protect");
+const timeago = require("timeago.js");
 
 const authenticationRouter = require("./routes/unauthenticated/authentication");
 const lobbyRouter = require("./routes/authenticated/lobby");

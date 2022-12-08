@@ -13,12 +13,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      user_id: {
-        type: Sequelize.INTEGER,
+      username: {
+        type: Sequelize.STRING,
         allowNull: false
       },
       comment: {
         type: Sequelize.STRING,
+        allowNull: false
+      },
+      timestamp: {
+        type: Sequelize.BIGINT,
         allowNull: false
       },
       createdAt: {

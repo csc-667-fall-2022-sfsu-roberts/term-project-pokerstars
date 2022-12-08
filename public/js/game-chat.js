@@ -2,6 +2,18 @@ const queryString = window.location.href;
 const urlParams = queryString.split("/");
 const gameroom_id = urlParams[urlParams.length - 2];
 
+$("time.timeago").timeago();
+
+window.addEventListener("load", (event) => {
+  const timestamps = document.getElementsByClassName("timestamp");
+
+  console.log(timestamps);
+  Array.from(timestamps).forEach((element) => {
+    let date = new Date(parseInt(element.innerText));
+    element.innerText = jQuery.timeago(date);
+  });
+});
+
 document
   .querySelector("#message-field")
   .addEventListener("keydown", (event) => {
@@ -25,7 +37,9 @@ socket.on(`chat/gameroom/:${gameroom_id}`, ({ sender, message, timestamp }) => {
   template.innerHTML = `<div class="commment">
                           <span class="sender">@${sender}</span>
                           <span class="content">${message}</span>
-                          <div class="timestamp">${timestamp}</div>
+                          <span class="timestamp">${jQuery.timeago(
+                            timestamp
+                          )}</span>
                         </div>`;
 
   messages.lastChild.after(template.content.firstChild);

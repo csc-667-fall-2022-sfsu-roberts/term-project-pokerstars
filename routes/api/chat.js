@@ -24,7 +24,7 @@ router.post("/gameroom/:id", (request, response) => {
   const { username } = request.session;
   const timestamp = Date.now();
 
-  GameroomChat.create(gameroom_id, user_id, message)
+  GameroomChat.create(gameroom_id, username, message, timestamp)
     .then(() => {
       console.log("Comment Entered.");
     })

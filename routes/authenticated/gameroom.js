@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Games = require("../../db/games");
 const Gamerooms = require("../../db/gamerooms");
+const GameroomChat = require("../../db/gameroom-chats");
 
 router.post("/create/gameroom", (request, response) => {
   const { userID } = request.session;
@@ -42,16 +43,21 @@ router.post("/create", (request, response) => {
 });
 
 router.get("/:id/:title", (request, response) => {
-  const id = request.params.id;
+  const gameroom_id = request.params.id;
   const title = request.params.title;
+  const { username } = request.session;
 
-  response.render("authenticated/gameroom.hbs", {
-    game_title: title,
-    game_id: id,
-    game: "/public/js/gameroom.js",
-    cards: "/public/js/cards.js",
-    style: "../../public/stylesheets/gameroom.css",
-    cardStyle: "../../public/stylesheets/cards.css"
+  GameroomChat.all(gameroom_id).then((chats) => {
+    response.render("authenticated/gameroom.hbs", {
+      username: username,
+      gameroom_title: title,
+      gameroom_id: gameroom_id,
+      comments: chats,
+      game: "/public/js/gameroom.js",
+      cards: "/public/js/cards.js",
+      style: "../../public/stylesheets/gameroom.css",
+      cardStyle: "../../public/stylesheets/cards.css"
+    });
   });
 });
 
@@ -61,12 +67,12 @@ router.get("/:id", (request, response) => {
   response.redirect(`/game/${id}`);
 });
 
-router.get("/:id/:title", (request, response) => {
-  const id = request.params.id;
-  const title = request.params.title;
+// router.get("/:id/:title", (request, response) => {
+//   const id = request.params.id;
+//   const title = request.params.title;
 
-  response.redirect(`/game/${id}/${title}`);
-});
+//   response.redirect(`/game/${id}/${title}`);
+// });
 
 router.post("/:id/join", (request, response) => {
   const { id: game_id } = request.params;
