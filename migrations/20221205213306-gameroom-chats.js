@@ -4,7 +4,7 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable(
-      'lobby-chats',
+      'gameroom-chats',
       {
         user_id: {
           type: Sequelize.INTEGER,
