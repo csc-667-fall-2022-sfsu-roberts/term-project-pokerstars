@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start:dev:win": "SET \"NODE_ENV=development\" SET DEBUG=myapp:* & nodemon ./bin/www",
+    "start:dev:win": "set \"NODE_ENV=development\" set DEBUG=myapp:* & nodemon ./bin/www",
     "start:dev:mac": "NODE_ENV=development DEBUG=APP_NAME:* nodemon ./bin/www",
     "start": "node ./bin/www",
     "db:create:migration": "npx sequelize migration:generate --name",
@@ -13,8 +13,10 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "bootstrap": "^4.1.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "diagnostics_channel": "^1.1.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
@@ -23,6 +25,7 @@
     "hbs": "^4.2.0",
     "helper-timeago": "^0.1.0",
     "http-errors": "~1.6.3",
+    "javascript-time-ago": "^2.5.9",
     "morgan": "~1.9.1",
     "pg": "^8.8.0",
     "pg-promise": "^10.12.1",

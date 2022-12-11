@@ -1,15 +1,22 @@
 extends layout
 
+block append head 
+  link(rel="stylesheet", href="/public/stylesheets/signup.css")
+
 block content
-  h1 Signup page
-  form(action="/signup" method="POST")
-    div
-      label(for="username")
-      input(type="text" name="username")
+  div.text-center
+    form(class="form-signup" action="/signup" method="POST")
+      - var h1Class = ['h3', 'mb-3', 'font-weight-normal'];
+      h1(class=h1Class) Sign Up Page
 
-    div
-      label(for="password")
-      input(type="password" name="password")
+      div
+        label(for="username")
+        input(type="text" name="username" placeholder="Username" class="form-input")
 
-    div
-      input(type="submit" value="Sign Up")
+      div
+        label(for="password")
+        input(type="password" name="password" placeholder="Password" class="form-input")
+
+      div.buttonLogin
+        - var buttonLogin = ['btn', 'btn-lg', 'btn-primary','btn-block'];
+        button(class=buttonLogin type="submit") Sign Up
