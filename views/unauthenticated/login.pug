@@ -1,12 +1,15 @@
 extends layout
 
+
+
 block append head 
   link(rel="stylesheet", href="/public/stylesheets/login.css")
 
 block content
-  div.text-center
+
+  div.bg
     form(class="form-login" action="/login" method="POST")
-      - var h1Class = ['h3', 'mb-3', 'font-weight-normal'];
+      - var h1Class = ['h3', 'mb-3', 'font-weight-bold', 'text-white'];
       h1(class=h1Class) Please Login
       
       div

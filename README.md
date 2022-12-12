@@ -1,6 +1,6 @@
 # term-project-pokerstars
 
-## Pokerstar
+## Pokerstars
 Render: https://pokerstars.onrender.com/
 
 ## Set Up
@@ -8,7 +8,7 @@ Render: https://pokerstars.onrender.com/
 To run this server, run the following commands:
 Make sure you have everything downloaded
 ```
-$ cd pokerstar
+$ cd term-project-pokerstars
 $ npm install
 ```
 **Create Your Own Database:**
@@ -16,7 +16,7 @@ $ npm install
 $ created DATABASE_NAME
 ```
 **Please edit the following command with your own information**
-*Example: DATABASE_URL="postgres://pokerstar:pass@localhost:5432/pokerstar *
+*Example: DATABASE_URL="postgres://pokerstar:pass@localhost:5432/pokerstar*
 ```
 $ echo DATABASE_URL="postgres://YourUsername:YourPassword@YourHostname:5432/YourDatabaseName"
 ```

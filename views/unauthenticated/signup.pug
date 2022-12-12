@@ -4,9 +4,10 @@ block append head
   link(rel="stylesheet", href="/public/stylesheets/signup.css")
 
 block content
-  div.text-center
+
+  div.bg
     form(class="form-signup" action="/signup" method="POST")
-      - var h1Class = ['h3', 'mb-3', 'font-weight-normal'];
+      - var h1Class = ['h3', 'mb-3', 'font-weight-bold', 'text-white'];
       h1(class=h1Class) Sign Up Page
 
       div

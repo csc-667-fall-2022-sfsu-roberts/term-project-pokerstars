@@ -1,4 +1,10 @@
 extends layout
 
-block content
-  h1 Home Page
+block append head 
+  link(rel="stylesheet", href="/public/stylesheets/homepage.css")
+
+block append body
+  div.bg
+  
+  div.header
+    h1(id="header") Welcome to Pokerstars!
