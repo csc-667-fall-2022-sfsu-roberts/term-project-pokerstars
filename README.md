@@ -1,6 +1,7 @@
 # term-project-pokerstars
 
 ## Pokerstars
+
 Render: https://pokerstars.onrender.com/
 
 ## Set Up
@@ -16,7 +17,9 @@ $ npm install
 $ created DATABASE_NAME
 ```
 **Please edit the following command with your own information**
-*Example: DATABASE_URL="postgres://pokerstar:pass@localhost:5432/pokerstar*
+
+*Example:DATABASE_URL="postgres://pokerstar:pass@localhost:5432/pokerstar*
+
 ```
 $ echo DATABASE_URL="postgres://YourUsername:YourPassword@YourHostname:5432/YourDatabaseName"
 ```
@@ -45,9 +48,7 @@ $ npm run start
 * pg_promise
 * pug
 * handle bar
-* sequelize
-* diganostics_channel
 * bcrypt
 * bootstrap
 * socket.io
-* timeago
+

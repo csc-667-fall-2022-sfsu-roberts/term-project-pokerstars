@@ -2,31 +2,35 @@ html,body {
     height:100%;
 }
 
-*{
-    box-sizing: border-box;
-}
 body {
     padding-top: 40px;
     padding-bottom: 40px;
     background-color: #f5f5f5;
 }
 
-
 .bg {
-    background-image: url("../images/cards/background/poker.jpg");
+    background-image: url("../images/background/ace.png");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: stretch;
     text-align: center;
 }
 
+.center {
+
+    position: relative;
+    top:20%;
+}
 
 .form-login {
-    width:100%;
-    max-width: 330px;
-    padding: 15px;
+    
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     margin: auto;
+    position: relative;
 }
 
 .form-login .form-input {

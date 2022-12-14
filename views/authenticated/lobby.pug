@@ -1,45 +1,65 @@
 extends layout
 
+block append head 
+    link(rel="stylesheet", href="/public/stylesheets/lobby.css")
+
+    div(class="container head")
+      div.honentwo
+        h1 Lobby (Authenticated)
+        if username
+          h2 Welcome #{username} (#{userID})
+
 block content
-  h1 Lobby page (authenticated)
-  if username
-    h2 Welcome #{username} (#{userID})
 
-  #game-list
-    h2 Create New Game
-    #create-game
+  div.bg
+      div.create
+        #game-list
+          -var h1create=['text-white','font-weight-bold']
+          h1(class=h1create) Create New Game
+          #create-game
 
-      //- form(action="/gameroom/create" method="POST")
-      form(action="/gameroom/create/gameroom" method="POST")
-        label(for="title") Title (optional):
-        input#title(type="text" name="title")
-        button#create-game(type="submit") Create
+            //- form(action="/gameroom/create" method="POST")
+            form(action="/gameroom/create/gameroom" method="POST" class="gameroom")
+              -var titleLabel =['text-white','font-weight-bold']
+              label(for="title") Title (optional):
+              input#title(type="text" name="title")
+              button#create-game(type="submit") Create
 
-    h2 Active Gamerooms
-    #active-games-list
-      ul
-        each gameroom in gamerooms.active
-          li
-            a(href=`/gameroom/${gameroom.id}/${gameroom.title}`) #{gameroom.title}
+      div.right
 
-    h2 Joinable Gamerooms
-    #joinable-games-list
-      ul
-        each gameroom in gamerooms.joinable
-          li
-            form(action=`/gameroom/${gameroom.id}/${gameroom.title}/join` method="POST")
-              button(type="submit") Join #{gameroom.title || gameroom.id}
+        div.active
+          -var h2active=['text-white','font-weight-bold']
+          h2(class=h2active) Active Gamerooms
+          #active-games-list
+            ul
+              each gameroom in gamerooms.active
+                li
+                  -var activeList=("display-5", "text-align:center")
+                  a(class=activeList href=`/gameroom/${gameroom.id}/${gameroom.title}`) #{gameroom.title}
+        
+        div.join
+          -var h2join = [['text-white','font-weight-bold']]
+          h2(class=h2join) Joinable Gamerooms
+          #joinable-games-list
+            ul
+              each gameroom in gamerooms.joinable
+                li
+                  form(action=`/gameroom/${gameroom.id}/${gameroom.title}/join` method="POST")
+                    button(type="submit") Join #{gameroom.title || gameroom.id}
 
-  template#message
-    span.sender
-    span.content
-    span.timestamp
+      div.chat
 
-  h2 Chat
-  #chat
-    #messages
-    #send
-      input(type="text" id="message-field")
+        template#message
+          span.sender
+          span.content
+          span.timestamp
+
+        -var h2chat =['text-white','font-weight-bold']
+        h2(class=h2chat) Chat
+        #chat
+          #messages
+          #send
+            input(type="text" id="message-field")
 
 block footer
   script(src="/socket.io/socket.io.js")

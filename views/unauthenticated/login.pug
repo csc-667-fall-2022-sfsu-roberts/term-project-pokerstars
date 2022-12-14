@@ -8,18 +8,19 @@ block append head
 block content
 
   div.bg
-    form(class="form-login" action="/login" method="POST")
-      - var h1Class = ['h3', 'mb-3', 'font-weight-bold', 'text-white'];
-      h1(class=h1Class) Please Login
-      
-      div
-        label(for="username")
-        input(type="text" name="username" placeholder="Username" class="form-input")
+    div.center
+      form(class="form-login" action="/login" method="POST")
+        - var h1Class = ['h3', 'mb-3', 'font-weight-bold', 'text-white'];
+        h1(class=h1Class) Please Login 
+        
+        div
+          label(for="username")
+          input(type="text" name="username" placeholder="Username" class="form-input" size="50")
 
-      div
-        label(for="password")
-        input(type="password" name="password" placeholder="Password" class="form-input")
+        div
+          label(for="password")
+          input(type="password" name="password" placeholder="Password" class="form-input" size="50")
 
-      div
-        - var buttonLogin=['btn', 'btn-lg', 'btn-primary','btn-block'];
-        button(class=buttonLogin type="submit") Login 
+        div
+          - var buttonLogin=['btn', 'btn-lg', 'btn-primary','btn-block'];
+          button(class=buttonLogin type="submit") Login 

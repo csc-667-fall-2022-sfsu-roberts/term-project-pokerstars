@@ -1,0 +1,55 @@
+body, html {
+    height: 100%;
+}
+
+body{
+   background-color: #FFFFFF;
+   color: #000000;
+   margin: 0;
+   padding: 0;
+}
+
+.cotainer {
+    display: flex;
+}
+
+.head {
+
+    justify-content: center;
+}
+
+.honentwo {
+    text-align: center;
+}
+
+
+.bg {
+    background-image: url("../images/background/Gametime.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.create {
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center 
+}
+
+.create {
+    margin: auto;
+}
+
+.chat {
+    margin-left: 1.5%;
+}
+
+.right {
+    float:right
+}
+
+label {
+    color:white;
+}
